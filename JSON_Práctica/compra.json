@@ -1,0 +1,124 @@
+{
+   "productos": [
+       {
+           "producto" : "tomate",
+           "unidad de medida" : "Kg",
+           "cantidad" : 2, 
+           "habitual" : true,
+           "adquirido" : true,
+           "precio" : [
+               {
+                    "supermercado" : "Mercadona",
+                    "precio" : 1.05,
+                    "oferta" : {
+                        "oferta" : "-50% descuento",
+                        "vigencia" : "22/03/2022"
+                    }
+               },
+               {
+                   "supermercado" : "Día",
+                   "precio" : 0.99,
+                    "oferta" : {
+                        "oferta" : null,
+                        "vigencia" : null
+                    }
+               },
+               {
+                   "supermercado" : "Carrefour",
+                   "precio" : 1.12,
+                    "oferta" : {
+                        "oferta" : null,
+                        "vigencia" : null
+                    }
+               }
+               
+           ]
+       },
+       {
+           "producto" : "leche",
+           "unidad de medida" : "L",
+           "cantidad" : 3, 
+           "habitual" : true,
+           "adquirido" : false,
+           "precio" : [
+               {
+                    "supermercado" : "Mercadona",
+                    "precio" : 1.32,
+                    "oferta" : {
+                        "oferta" : null,
+                        "vigencia" : null
+                    }
+               },
+               {
+                   "supermercado" : "Día",
+                   "precio" : 1.35,
+                    "oferta" : {
+                        "oferta" : "3x2",
+                        "vigencia" : "28/06/2022"
+                    }
+               },
+               {
+                   "supermercado" : "Carrefour",
+                   "precio" : 1.33,
+                    "oferta" : {
+                        "oferta" : "2x1",
+                        "vigencia" : "30/04/2022"
+                    }
+               }
+               
+           ]
+       },
+       {
+           "producto" : "pasta",
+           "unidad de medida" : "Kg",
+           "cantidad" : 1, 
+           "habitual" : false,
+           "adquirido" : true,
+           "precio" : [
+               {
+                    "supermercado" : "Mercadona",
+                    "precio" : 1.52,
+                    "oferta" : {
+                        "oferta" : null,
+                        "vigencia" : null
+                    }
+               },
+               {
+                   "supermercado" : "Día",
+                   "precio" : 1.6,
+                    "oferta" : {
+                        "oferta" : "2x1",
+                        "vigencia" : "31/12/2022"
+                    }
+               }
+               
+           ]
+       }
+   ],
+   "supermercados" : [
+       {
+           "nombre": "Mercadona",
+            "dirección":"Calle Primera 1",
+            "geolocalización":[
+                "40.434153N",
+                "3.691972W"
+            ]
+       },
+       {
+           "nombre": "Día",
+            "dirección":"Calle Segunda 2",
+            "geolocalización":[
+                "40.123456N",
+                "3.654321W"
+            ]
+       },
+       {
+           "nombre": "Carrefour",
+            "dirección":"Calle Tercera 3",
+            "geolocalización":[
+                "40.568953N",
+                "3.995842W"
+            ]
+       }
+   ]
+}
