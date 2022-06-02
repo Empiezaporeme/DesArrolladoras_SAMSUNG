@@ -1,0 +1,75 @@
+<mat-toolbar color="primary">
+<h1>{{title}}</h1>
+</mat-toolbar>
+<br><br>
+
+<mat-card>
+<form action="" style="margin-left: 10px;" class="example-form">
+  <div>
+    <label for="nombre" class="label">Nombre   </label>
+    <input matInput type="text" name="nombre" id="nombre" placeholder="Nombre" class="" [(ngModel)]="cuadroNombre" [formControl]="controlNombre" [minlength]="3" required (ngSubmit)="onSubmit()">
+    <mat-hint style="font-size: xx-small;">  *Campo obligatorio</mat-hint>
+    <div *ngIf="controlNombre.invalid && controlNombre.errors?.['minlength']" style="color: red; font-size: smaller;">
+        El nombre debe tener al menos 3 caracteres
+    </div>
+  </div><br>
+
+  <div>
+    <label for="apellido" class="label">Apellido    </label>
+    <input matInput type="text" name="apellido" id="apellido" placeholder="Apellido" class="" [(ngModel)]="cuadroApellidos" [formControl]="controlApellido" [minlength]="3">
+    <mat-hint style="font-size: xx-small;">  *Campo obligatorio</mat-hint>
+      <div *ngIf="controlApellido.invalid && controlApellido.errors?.['minlength']" style="color: red; font-size: x-small;">
+        El apellido debe tener al menos 3 caracteres
+      </div>
+  </div><br>
+
+  <div>
+    <label for="edad" class="label">Edad   </label>
+    <input type="number" name="edad" id="edad" placeholder="Edad" class="" [(ngModel)]="cuadroEdad" [formControl]="controlEdad">
+      <div *ngIf="controlEdad.invalid && (controlEdad.errors?.['min'] || controlEdad.errors?.['max'])" style="color: red; font-size: x-small;">
+        La edad debe estar comprendida entre los 0 y los 125 años.
+      </div>
+  </div><br>
+
+  <div>
+    <label for="dni" class="label">DNI   </label>
+    <input type="text" name="dni" id="dni" placeholder="DNI" class="" [(ngModel)]="cuadroDNI" [formControl]="controlDNI" [minlength]="9" maxlength="9">
+      <div *ngIf="controlDNI.invalid && (controlDNI.errors?.['minlength'])" style="color: red; font-size: x-small;">
+        El DNI debe contener 9 caracteres.
+      </div>
+  </div><br>
+
+  <div>
+    <label for="cumpleanos" class="label">Cumpleaños   </label>
+    <input type="date" name="cumpleanos" id="cumpleanos" placeholder="Cumpleanos" class="" [(ngModel)]="cuadroCumpleanos" value="" >
+  </div><br>
+
+  <div>
+    <label for="color" class="label">Color Favorito   </label>
+    <input type="text" name="color" id="color" placeholder="Color" class="" [(ngModel)]="cuadroColor" [formControl]="controlColor" [minlength]="3" minlength="3">
+    <div *ngIf="controlColor.invalid && controlColor.errors?.['minlength']" style="color: red; font-size: x-small;">
+        El color favorito debe tener al menos 3 caracteres.
+      </div>
+  </div><br>
+
+  <div>
+    <fieldset [formGroup]="controlSexo" (ngSubmit)="onSubmit()">
+      <label for="sexo" class="label">Sexo</label><br>
+      <input type="radio" id="hombre" name="hombre" value="hombre" [(ngModel)]="cuadroSexo" formControlName="hombre"><label for="hombre">Hombre</label><br>
+      <input type="radio" id="mujer" name="mujer" value="mujer" [(ngModel)]="cuadroSexo" formControlName="mujer"><label for="mujer">Mujer</label><br>
+      <input type="radio" id="otro" name="otro" value="otro" [(ngModel)]="cuadroSexo" formControlName="otro"><label for="otro">Otro</label><br>
+      <input type="radio" id="no especificado" name="noEspecificado" value="no especificado" [(ngModel)]="cuadroSexo" formControlName="noEspecificado" ><label for="no especificado">No especificado</label>
+    </fieldset>
+  </div><br>
+
+  <div class="submit">
+    <button type="submit" (click)="agregarPersona()" [disabled]="!controlNombre.valid || !controlApellido.valid" mat-raised-button color="primary">Agregar</button>
+  </div>
+
+</form>
+</mat-card>
+
+<br><br>
+
+<app-persona *ngFor="let persona of personas; let i=index" [personaLista] ="persona" [indice]="i"></app-persona>
+

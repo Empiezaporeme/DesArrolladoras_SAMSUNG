@@ -1,0 +1,7 @@
+
+<mat-list-item>
+
+  <b>{{indice+1}}.</b> {{personaLista.nombre}} {{personaLista.apellidos}}, edad: {{personaLista.edad}}, DNI: {{personaLista.dni}}, Cumpleaños: {{personaLista.cumpleanos.toLocaleDateString('es-ES',{year: 'numeric', month: '2-digit', day: '2-digit'})}}, Color favorito: {{personaLista.color}}, Sexo: {{personaLista.sexo}}
+  <button [routerLink]="['/actualizar',indice]" mat-stroked-button color="primary">Modificar</button>
+
+</mat-list-item>    
