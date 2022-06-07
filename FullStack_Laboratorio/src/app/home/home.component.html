@@ -1,0 +1,65 @@
+<mat-toolbar color="primary">
+<h1>{{title}}</h1>
+</mat-toolbar>
+<br><br>
+
+<mat-card>
+<form action="" style="margin-left: 10px;" class="example-form">
+  <div>
+    <label for="nombre" class="label">Nombre   </label>
+    <input matInput type="text" name="nombre" id="nombre" placeholder="Nombre" class="" [(ngModel)]="cuadroNombre" [formControl]="controlNombre" [minlength]="3" required (ngSubmit)="onSubmit()">
+    <mat-hint style="font-size: xx-small;">  *Campo obligatorio</mat-hint>
+    <div *ngIf="controlNombre.invalid && controlNombre.errors?.['minlength']" style="color: red; font-size: smaller;">
+        El nombre debe tener al menos 3 caracteres
+    </div>
+  </div><br>
+
+  <div>
+    <label for="apellido" class="label">Apellidos    </label>
+    <input matInput type="text" name="apellido" id="apellido" placeholder="Apellido" class="" [(ngModel)]="cuadroApellidos" [formControl]="controlApellido" [minlength]="3">
+    <mat-hint style="font-size: xx-small;">  *Campo obligatorio</mat-hint>
+      <div *ngIf="controlApellido.invalid && controlApellido.errors?.['minlength']" style="color: red; font-size: x-small;">
+        El apellido debe tener al menos 3 caracteres
+      </div>
+  </div><br>
+
+  <div>
+    <label for="socio" class="label">Número de socio   </label>
+    <input type="number" name="socio" id="socio" placeholder="Número de socio" class="" [(ngModel)]="cuadroSocio" [formControl]="controlSocio">
+      <div *ngIf="ids.has(cuadroSocio)" style="color: red; font-size: x-small;">
+        Este socio ya existe, pruebe otro número.
+      </div>
+  </div><br>
+
+  <div>
+    <label for="dni" class="label">DNI   </label>
+    <input type="text" name="dni" id="dni" placeholder="DNI" class="" [(ngModel)]="cuadroDNI" [formControl]="controlDNI" [minlength]="9" maxlength="9">
+      <div *ngIf="controlDNI.invalid && (controlDNI.errors?.['minlength'])" style="color: red; font-size: x-small;">
+        El DNI debe contener 9 caracteres.
+      </div>
+  </div><br>
+
+  <div>
+    <label for="telefono" class="label">Color Favorito   </label>
+    <input type="text" name="color" id="telefono" placeholder="Teléfono" class="" [(ngModel)]="cuadroTelefono" [formControl]="controlTelefono" [minlength]="3" minlength="3">
+  </div><br>
+
+  <div>
+    <fieldset [formGroup]="controlSexo" (ngSubmit)="onSubmit()">
+      <label for="sexo" class="label">Sexo</label><br>
+      <input type="radio" id="hombre" name="hombre" value="hombre" [(ngModel)]="cuadroSexo" formControlName="hombre"><label for="hombre">Hombre</label><br>
+      <input type="radio" id="mujer" name="mujer" value="mujer" [(ngModel)]="cuadroSexo" formControlName="mujer"><label for="mujer">Mujer</label><br>
+  </fieldset>
+  </div><br>
+
+  <div class="submit">
+    <button type="submit" (click)="agregarSocio()" [disabled]="!controlNombre.valid || !controlApellido.valid" mat-raised-button color="primary">Agregar</button>
+  </div>
+
+</form>
+</mat-card>
+
+<br><br>
+
+<app-socio *ngFor="let socio of socios; let i=index" [socioLista] ="socio" [indice]="i"></app-socio>
+

@@ -1,0 +1,7 @@
+
+<mat-list-item>
+
+  <b>{{indice+1}}.</b> Socio {{socioLista.socio}}: {{socioLista.nombre}} {{socioLista.apellidos}}, DNI: {{socioLista.dni}}, Teléfono {{socioLista.telefono}}, Sexo: {{socioLista.sexo}}
+  <button [routerLink]="['/actualizar',indice]" mat-stroked-button color="primary">Modificar</button>
+
+</mat-list-item>    
